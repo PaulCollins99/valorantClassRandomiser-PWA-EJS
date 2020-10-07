@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Valorant Class Randomizer</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="shortcut icon" type="image/png" href="/images/144.png">
+  <link rel="manifest" href="../manifest.json">
+
+</head>
+
+<body>
+  <h1 class="mainHeader">Valorant Class Randomizer</h1>
+
+  <section class="cashInput" id="inputs">
+    <% for (let i = 0; i < playerObj.playerCount; i++) { %>
+    <section class="playerSection">
+      <div class="group">
+        <h3 class="subHeader">Player Name: </h3>
+        <h3 class="player"><%= playerObj.playerNames[i]%></h3>
+      </div>
+      <div class="group">
+        <h3 class="subHeader">Character Name: </h3>
+        <h3 class="player"><%= playerObj.characterNames[i]%></h3>
+      </div>
+      <div class="lGroup">
+        <input type="number" name="" id=<%= "player" + (i + 1) %> class="inputCash" placeholder="Player Cash">
+      </div>
+    </section>
+    <% } %>
+    <button id="generate" class="generateBuy">Generate Buy</button>
+  </section>
+  <section class="outputSection" id="outputs" style="display:none;">
+    <% for (let i = 0; i < playerObj.playerCount; i++) { %>
+    <div class="group">
+      <h3 class="subHeader">Player Name: </h3>
+      <h3 class="player"><%= playerObj.playerNames[i]%></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Primary: </h3>
+      <h3 class="primary subHeader"></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Secondary: </h3>
+      <h3 class="secondary subHeader"></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Armour: </h3>
+      <h3 class="armour subHeader"></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Power 1: </h3>
+      <h3 class="power1 subHeader"></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Power 2: </h3>
+      <h3 class="power2 subHeader"></h3>
+    </div>
+    <div class="group">
+      <h3 class="subHeader">Power 3: </h3>
+      <h3 class="power3 subHeader"></h3>
+    </div>
+    <% } %>
+  </section>
+
+
+  <script src="/javascripts/main.js" type="module"></script>
+  <script src="/javascripts/user.js" type="module"></script>
+  <script src="/javascripts/buyLogic.js" type="module"></script>
+  <script src="/javascripts/buyableItems.js" type="module"></script>
+
+</body>
+
+</html>
