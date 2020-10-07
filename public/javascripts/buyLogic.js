@@ -91,21 +91,25 @@ export function getArmour(eco, pistol, player) {
 
 export function powers(player) {
     let output = {};
-    let chance = 10 * Math.random() << 0;
-    if (chance <= 8) {
-        if (player.cash >= player.character[key].cost) {
-            let number = player.character[key].quantity * Math.random() << 0;
-            while (number * player.character[key].cost >= player.cash) {
-                number = player.character[key].quantity * Math.random() << 0;
+
+    for (let key in player.character) {
+        let multiplyier = 10
+        let chance = multiplyier * Math.random() << 0;
+        if (chance <= 8) {
+            if (player.cash >= player.character[key].cost) {
+                let number = player.character[key].quantity * Math.random() << 0;
+                while (number * player.character[key].cost >= player.cash) {
+                    number = player.character[key].quantity * Math.random() << 0;
+                }
+                if (number == 0) {
+                    number += 1;
+                }
+                player.cash -= number * player.character[key].cost;
+                output[player.character[key].name] = {
+                    "name": player.character[key].name,
+                    "quantity": number
+                };
             }
-            if (number == 0) {
-                number += 1;
-            }
-            player.cash -= number * player.character[key].cost;
-            output[player.character[key].name] = {
-                "name": player.character[key].name,
-                "quantity": number
-            };
         }
     }
     return output;

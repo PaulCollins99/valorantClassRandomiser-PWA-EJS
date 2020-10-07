@@ -57,3 +57,14 @@ body {
 .groupChar {
   margin-top: 5px;
 }
+@media (max-width:600px) { 
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 2em;
+    padding-bottom: 3em;
+    margin: 0px;
+    text-align: center;
+  }
+
+}

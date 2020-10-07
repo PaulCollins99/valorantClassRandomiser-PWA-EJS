@@ -85,7 +85,6 @@ function generateBuy(buyableItems) {
             playerBuy.Pistol = getPistol(player, buyableItems);
 
             let power = powers(player);
-            console.log(power)
             let powerCount = 0;
             for (let key in power) {
                 powerCount++
@@ -95,7 +94,6 @@ function generateBuy(buyableItems) {
         }
         output.push(playerBuy)
     });
-    console.log(output);
     document.getElementById("inputs").style.display = "none"
     document.getElementById("outputs").style.display = "block"
 
